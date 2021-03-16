@@ -1,2 +1,9 @@
 *.class
 *.log
+.bloop
+.vscode
+.metals
+.bsp
+CodewarsVs/project
+.history
+CodewarsVs/target
