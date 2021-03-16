@@ -4,6 +4,6 @@
 .vscode
 .metals
 .bsp
-CodewarsVs/project
+*/project
 .history
-CodewarsVs/target
+*/target
