@@ -1,4 +1,4 @@
-package sol
+package codewars.sol
 
 object GapInPrimes {
   def gap(g: Int, m: Long, n: Long): String = ???
