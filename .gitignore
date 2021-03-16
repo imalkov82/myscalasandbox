@@ -4,6 +4,6 @@
 .vscode
 .metals
 .bsp
-*/project
+**/project
 .history
-*/target
+**/target
