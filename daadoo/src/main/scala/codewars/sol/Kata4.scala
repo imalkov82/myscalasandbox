@@ -1,4 +1,4 @@
-package codewars.sol
+package sol
 
 import scala.collection.mutable.{ArrayBuffer, SortedSet}
 import javax.swing.text.View

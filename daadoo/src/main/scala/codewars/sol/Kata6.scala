@@ -1,4 +1,4 @@
-package codewars.sol
+package sol
 
 object Opstrings {
   private def stringTrans(strng: String): Array[String] = ???

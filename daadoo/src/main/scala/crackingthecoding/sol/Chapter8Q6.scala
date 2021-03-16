@@ -50,7 +50,7 @@ class UsersManager(val room: ChatRoom){
     def singinUser(name: String): Boolean = users.map(_.name).contains(name) 
 
     def registerUser(name: String) = 
-        if(!users.map(_.name).contains(name)) users :+ User(name, room, this)
+        if(!users.map(_.name).contains(name)) users :+ new User(name, room, this)
 }
 
 class ChatRoom(){
@@ -74,4 +74,8 @@ class ChatRoom(){
           if p.name == destination
       )  yield p.receive(source, message)
     }
+}
+
+object Chapter8Q6 extends App{
+    
 }
