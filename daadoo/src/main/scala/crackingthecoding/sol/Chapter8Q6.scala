@@ -26,39 +26,47 @@ Design Patterns:
 import scala.collection.mutable.ListBuffer
 
 
-class User(val name: String, val room: ChatRoom, val manager: UsersManager){
+class User(val name: String){
+    var room: ChatRoom = null
     private val chatLog: ListBuffer[String]= ListBuffer[String]()
     private val friends: ListBuffer[String] = ListBuffer[String]()
     var status: String = ""
-
+    var isActive = false
 
     def updateStatus(msg: String): Unit = status = msg
-
-    def request() = ???
 
     def receive(sender: String, message: String): Unit = {
         println(s"from ${sender} to $name, $message")
     }
 
     def privateMsg(who: String, message: String) =
-        room.message(name, who, message)
+        if(room != null) room.message(name, who, message)
 }
 
-class UsersManager(val room: ChatRoom){
+class UsersManager(){
     val users = ListBuffer[User]()
 
-    def singinUser(name: String): Boolean = users.map(_.name).contains(name) 
+    def singinUser(name: String): Boolean = {
+        users.find(_.name == name).getOrElse(false)
+        //if(users.map(_.name).contains(name)) users.find(_.name == name).get.isActive = true
+        true
+    } 
 
     def registerUser(name: String) = 
-        if(!users.map(_.name).contains(name)) users :+ new User(name, room, this)
+        if(!users.map(_.name).contains(name)) users :+ new User(name)
+    
+    def isExist(name: String): Boolean = users.map(_.name).contains(name)
 }
 
 class ChatRoom(){
+    val usersManager = new UsersManager()
     val persons = ListBuffer[User]()
     
-    def join(User: User) = {
-        broadcast("room", s"${User.name} joins the chat")
-        persons :+ User
+    def join(user: User) = {
+        // if ()
+        broadcast("room", s"${user.name} joins the chat")
+        persons :+ user
+        user.room = this
     }
 
     def broadcast(source: String, message: String) = {
@@ -77,5 +85,6 @@ class ChatRoom(){
 }
 
 object Chapter8Q6 extends App{
-    
+    val usersManager = new UsersManager()
+
 }

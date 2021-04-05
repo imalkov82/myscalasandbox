@@ -1,5 +1,6 @@
 package sol
 
+import collection.mutable.HashMap
 object GapInPrimes {
   def gap(g: Int, m: Long, n: Long): String = ???
 }
@@ -113,6 +114,14 @@ object MemoizedFib {
   }
 }
 
+object MemoizedFib2 {  
+  val cached: HashMap[Int, BigInt] = HashMap(0 -> 0, 1 -> 1)
+
+  def fib(n: Int): BigInt =
+    cached.getOrElseUpdate(n, fib(n-1) + fib(n-2))
+}
+
 object Kata5 extends App {
-  println(MemoizedFib.fib(50))
+  println(MemoizedFib2.fib(50))
+  println(MemoizedFib2.cached.values.takeWhile(_ < 50).drop(1))
 }
