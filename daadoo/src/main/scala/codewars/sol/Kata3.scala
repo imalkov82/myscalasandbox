@@ -7,6 +7,14 @@ def fib(n: Int) = {
   }
 }
 
+object BinomialExpansion {
+  /*
+  Binomial Expansion
+  */
+  def expand(expr: String): String = ???
+}
+
+
 object Kata3 extends App{
 
 }
