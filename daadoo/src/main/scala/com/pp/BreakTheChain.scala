@@ -1,4 +1,4 @@
-package com.paypal
+package com.pp
 
 /*
 A chain has N links. Divide it into three pieces by breaking exactly two non-adjacent links.

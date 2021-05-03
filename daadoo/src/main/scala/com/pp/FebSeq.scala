@@ -1,4 +1,4 @@
-package com.paypal
+package com.pp
 
 object FibSeq{
   private def calcFib(n: Int): List[Int] = n match {

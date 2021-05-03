@@ -1,4 +1,4 @@
-package com.paypal
+package com.pp
 
 /*
 Compute the maximum number of apples that can be picked by two people during their work in the orchard
